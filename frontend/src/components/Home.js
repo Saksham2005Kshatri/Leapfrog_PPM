@@ -64,12 +64,6 @@ const Home = () => {
         {sortedData.map((dataObj, key) => {
           return (
             <tr key={key} className="patient-block">
-              {/* <Link
-                key={dataObj._id}
-                to={`/user/${dataObj._id}`}
-                style={linkStyles}
-              > */}
-
               <td>
                 <ProfilePicture>
                   <img src={dataObj.profilePicture.url} alt="" />
@@ -101,22 +95,6 @@ const Home = () => {
 };
 
 const ProfilePicture = styled.div`
-  /* max-width: 80px;
-  max-height: 80px;
-  overflow: hidden;
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* object-fit: cover; 
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-  } */
-
   width: 80px;
   height: 80px;
   border-radius: 50%;

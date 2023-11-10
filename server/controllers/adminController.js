@@ -3,12 +3,23 @@ import bcrypt from "bcrypt";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 
+const getAdmins = async (request, response) => {
+  const admins = await Admin.find({});
+  response.json(admins);
+};
+
+const getAdminById = async (request, response) => {
+  const admin = await Admin.findById(request.params.id);
+  response.json(admin);
+};
+
 const signup = async (request, response) => {
   bcrypt
     .hash(request.body.password, 10)
     .then((hashedPassword) => {
       // create a new user instance and collect the data
       const admin = new Admin({
+        username: request.body.username,
         email: request.body.email,
         password: hashedPassword,
       });
@@ -96,4 +107,4 @@ const signin = asyncHandler(async (request, response) => {
     });
 });
 
-export default { signup, signin };
+export default { getAdmins, getAdminById, signup, signin };

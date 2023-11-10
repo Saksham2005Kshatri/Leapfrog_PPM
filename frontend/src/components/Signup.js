@@ -5,9 +5,10 @@ import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
 
-import "../styles/loginForm.css";
+import "../styles/signinForm.css";
 
 const Signup = () => {
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const url = "http://localhost:8000/signup";
@@ -27,16 +28,12 @@ const Signup = () => {
     fetchData();
   }, []);
 
-  const notify = () => toast("Signed up successfully");
-
-  const handleNotify = () => {
-    notify();
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const data = {
+      username: username,
       email: email,
       password: password,
     };
@@ -50,7 +47,7 @@ const Signup = () => {
     axios(configuration)
       .then((result) => {
         setSignup(true);
-        notify();
+        alert("Signed up successfully");
         navigate("/login");
       })
       .catch((err) => {
@@ -59,10 +56,21 @@ const Signup = () => {
   };
 
   return (
-    <div className="login-page">
+    <div className="signup-page">
       <div className="background-image"></div>
-      <div className="login-form">
+      <div className="signup-form">
         <h1>Welcome to Promed</h1>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Username</Form.Label>
+
+          <Form.Control
+            type="username"
+            name="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Enter username"
+          />
+        </Form.Group>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
 
@@ -91,13 +99,12 @@ const Signup = () => {
           type="submit"
           onClick={(e) => {
             handleSubmit(e);
-            handleNotify();
           }}
           className="mt-2"
         >
           Submit
         </Button>
-        <div className="login-link">
+        <div className="signup-link">
           <Link to="/login">Login instead</Link>
         </div>
       </div>

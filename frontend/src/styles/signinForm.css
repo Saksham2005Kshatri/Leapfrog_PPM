@@ -1,0 +1,94 @@
+.signup-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000814;
+}
+
+.background-image {
+  flex: 1;
+  background-image: url("https://images.unsplash.com/photo-1488903809927-48c9b4e43700?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8NXx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
+.signup-form {
+  flex: 1;
+  background-color: #000814;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  /* Decrease the max-width to cover less space */
+  max-width: 20%;
+  margin-right: 5px; /* Decrease the margin to create more space */
+}
+
+.signup-form input[type="email"]::placeholder,
+.signup-form input[type="password"]::placeholder {
+  color: black;
+}
+
+.create-new-account {
+  margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+  .signup-page {
+    flex-direction: row;
+  }
+
+  .signup-form {
+    max-width: 40%; /* Adjust this value as needed */
+    margin-right: 20px;
+  }
+
+  .signup-image {
+    max-width: 60%; /* Adjust this value as needed */
+  }
+}
+
+@media (max-width: 767px) {
+  .signup-page {
+    flex-direction: column;
+  }
+
+  .signup-form,
+  .signup-image {
+    max-width: 100%;
+    margin: 10px;
+  }
+}
+
+.login-link {
+  margin-top: 10px;
+}
+
+/* @media (min-width: 768px) {
+  .login-page {
+    flex-direction: row;
+  }
+
+  .login-form {
+    max-width: 50%;
+    margin-right: 40px;
+  }
+
+  .login-image {
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-form,
+  .login-image {
+    max-width: 100%;
+    margin: 10px;
+  }
+} */

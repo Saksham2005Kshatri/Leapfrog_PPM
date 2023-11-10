@@ -7,14 +7,12 @@ const app = express();
 
 import dbConnect from "../server/db/dbConnect.js";
 
-
 import userRoutes from "./routes/userRoutes.js";
 import loginRoute from "./routes/loginRoute.js";
 
 import adminRoutes from "./routes/adminRoutes.js";
 
 import User from "../server/db/userModel.js";
-
 
 dbConnect();
 
@@ -24,7 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ origin: true, credentials: true }));
 
 app.use(express.urlencoded({ extended: true }));
-
 
 app.use(express.json());
 
@@ -37,6 +34,8 @@ app.use("/login", loginRoute);
 app.use("/signup", userRoutes);
 app.use("/login", userRoutes);
 
+app.use("/admins", userRoutes);
+app.use("/admin/:id", userRoutes);
 
 app.get("/free-endpoint", (req, res) => {
   response.json({ message: "you are free to access this endpoint" });

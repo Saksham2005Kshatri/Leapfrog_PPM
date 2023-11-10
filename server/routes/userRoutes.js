@@ -35,12 +35,13 @@ router.post("/logout", userController.logout);
 
 router.put(
   "/user/:id/edit",
-  // auth, // First, authenticate the user
-  // checkRole("admin"), // Then, check if the user has the admin role
+  auth,
   upload.single("profilePicture"), // Then, handle the file upload if needed
   userController.updateUser
 );
 
+router.get("/admins", adminController.getAdmins);
+router.get("/admin/:id", adminController.getAdminById);
 router.post("/signup", adminController.signup);
 router.post("/signin", adminController.signin);
 

@@ -15,6 +15,8 @@ import Profile from "./components/Profile";
 import UpdateForm from "./components/UpdateForm";
 import Signup from "./components/Signup";
 
+import UserTable from "./components/UserTable";
+
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+
+        <Route path="/admins" element={<UserTable />} />
 
         <Route path="/signup" element={<Signup />} />
         <Route path="/user/:id" element={<Profile />} />

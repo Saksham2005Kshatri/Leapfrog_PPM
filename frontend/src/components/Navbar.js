@@ -37,6 +37,12 @@ const Navbar = () => {
         </NavbarItem>
 
         <NavbarItem>
+          <a href="/admins" style={linkStyles}>
+            Admins
+          </a>
+        </NavbarItem>
+
+        <NavbarItem>
           {authenticated && <RegisterButton style={buttonStyles} />}
         </NavbarItem>
 
