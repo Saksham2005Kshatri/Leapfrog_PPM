@@ -7,6 +7,7 @@ import Navbar from "./Navbar.js";
 import { useAuth } from "../Authcontext.js";
 import UpdateButton from "./UpdateButton.js";
 import Header from "./Header.js";
+import NotesArea from "./NotesArea.js";
 
 const Profile = () => {
   const [data, setData] = useState([]);
@@ -22,6 +23,8 @@ const Profile = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { authenticated } = useAuth();
+
+  const [notes, setNotes] = useState("");
 
   const { id } = useParams();
 
@@ -131,10 +134,19 @@ const Profile = () => {
           </Detail>
         </Details>
 
-        <Notes>
-          <label htmlFor="notes">Notes:</label>
-          <Note id="notes" cols="30" rows="4" className="notes-textarea"></Note>
-        </Notes>
+        <NotesText>
+          <label htmlFor="notes">Add a note:</label>
+          <Note
+            value={notes}
+            id="notes"
+            cols="30"
+            rows="4"
+            className="notes-textarea"
+            onChange={(e) => setNotes(e.target.value)}
+          ></Note>
+          <SubmitNoteButton />
+          <NotesArea />
+        </NotesText>
       </Dashboard>
       <ButtonsWrapper>
         <ButtonsSection>
@@ -206,7 +218,7 @@ const Detail = styled.p`
   margin: 5px 0;
 `;
 
-const Notes = styled.div`
+const NotesText = styled.div`
   margin: 10px;
   margin-top: 20px;
   flex: 1; /* Take up one-third of the width */
@@ -217,6 +229,10 @@ const Note = styled.textarea`
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+`;
+
+const SubmitNoteButton = styled.button`
+  background-color: teal;
 `;
 
 const ButtonsWrapper = styled.div`

@@ -1,11 +1,7 @@
 import { useState, useEffect } from "react";
-// import { Container, Col, Row, Button } from "react-bootstrap";
-
-
 import { Routes, Route } from "react-router-dom";
-import axios from "axios";
-// import { Routes, Route, Link } from "react-router-dom";
 
+import axios from "axios";
 
 import Register from "./components/Register";
 import Login from "./components/Login";
@@ -16,7 +12,6 @@ import UpdateForm from "./components/UpdateForm";
 import Signup from "./components/Signup";
 
 import UserTable from "./components/UserTable";
-
 
 function App() {
   return (
@@ -32,7 +27,6 @@ function App() {
         <Route path="/user/:id" element={<Profile />} />
         <Route path="/user/:id/edit" element={<UpdateForm />} />
         <Route path="/user/:id" element={<Profile />} />
-
       </Routes>
     </div>
   );

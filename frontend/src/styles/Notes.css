@@ -1,0 +1,6 @@
+.notes-component {
+  margin: 10px;
+  margin-top: 20px;
+  flex: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+}

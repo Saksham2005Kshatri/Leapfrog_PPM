@@ -56,6 +56,9 @@ const UserSchema = new mongoose.Schema({
     required: [true, "Please enter your phone number"],
   },
 
+  notes: {
+    type: String,
+  },
   email: {
     type: String,
     required: [true, "Please provide an Email!"],
@@ -67,6 +70,7 @@ const UserSchema = new mongoose.Schema({
     required: [true, "Please provide a password!"],
     unique: false,
   },
+
   role: String,
 });
 
